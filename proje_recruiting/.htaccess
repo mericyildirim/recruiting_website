@@ -1,0 +1,22 @@
+#Adres satırından girilen değer sayfa yoksa yönlendirme yapıyoruz 
+#ErrorDocument 404 http://localhost/web2_2024/proje_kutuphane_v10/404.html
+
+
+RewriteEngine On
+
+# Tek tek elle yazabiliriz
+#RewriteRule iletisim$ anasayfa.php?sayfa=iletisim
+#RewriteRule yazarlar$ anasayfa.php?sayfa=yazarlar
+
+# Veya değişken kullanabiliriz 
+RewriteRule şartlar$ terms.php
+RewriteRule işler$ jobs.php
+RewriteRule iş_detayları$ job-details.php
+RewriteRule iletişim$ contact.php
+RewriteRule başvuru$ basvuru.php
+RewriteRule hakkında$ about.php
+RewriteRule anasayfa$ index.php
+RewriteRule ^([0-9a-zA-Z-_]+)$ anasayfa.php?sayfa=$1
+RewriteRule yazar/([0-9a-zA-Z-_]+)$ anasayfa.php?sayfa=yazar&id=$1
+RewriteRule yazar/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+)$ anasayfa.php?sayfa=yazar&id=$2
+RewriteRule kitap/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+)$ anasayfa.php?sayfa=kitap&id=$2
